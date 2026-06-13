@@ -431,7 +431,7 @@ class KoboLibrary(object):
         if sys.platform.startswith('win'):
             c = re.compile('\s?(' + '[0-9a-f]{2}[:\-]' * 5 + '[0-9a-f]{2})(\s|$)', re.IGNORECASE)
             try: 
-                output = subprocess.Popen('ipconfig /all', shell=True, stdout=subprocess.PIPE, text=True).stdout
+                output = subprocess.Popen('ipconfig /all', shell=True, stdout=subprocess.PIPE, text=True, errors='ignore').stdout
                 for line in output:
                     m = c.search(line)
                     if m:
